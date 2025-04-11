@@ -155,7 +155,6 @@ img {
 
 /* Add shadow header */
 
-
 /*=============== HOME ===============*/
 .home {
   position: relative;
@@ -270,6 +269,7 @@ img {
   right: 0;
   margin-inline: auto;
   transform-origin: center center;
+  animation: ship 2s linear infinite;
 }
 
 
@@ -302,13 +302,91 @@ img {
 }
 
 /* Animated ship */
-
+@keyframes ship {
+  0%{
+    transform: translateY(0) rotate(0);
+  }
+  25%{
+    transform: translateY(0) rotate(-8deg);
+  }
+  40%{
+    transform: translateY(4px) rotate(-8deg);
+  }
+  85%{
+    transform: translateY(1px) rotate(8deg);
+  }
+  100%{
+    transform: translateY(0) rotate(0);
+  }
+}
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
+@media screen and (max-width: 300px) {
+  .container {
+    margin-inline: 1rem;
+  }
 
-
+  .home__title {
+    font-size: 3rem;
+  }
+  .home__title span{
+    font-size: 2.5rem;
+  }
+}
+@media screen and (min-width: 350px) and (max-height: 680px) {
+  .home__container {
+    height: 750px;
+  }
+  .home__images div {
+    width: 100%;
+  }
+}
 /* For medium devices */
 
 
 /* For large devices */
+@media screen and (min-width: 1150px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+  }
+  .nav__toggle,
+  .nav__close {
+    display: none;
+  }
+  .nav__list {
+    flex-direction: row;
+    column-gap: 4.5rem;
+  }
+  .home__container {
+    height: 860px;
+    padding-top: 11.5rem;
+  }
+  .home__title {
+    margin-bottom: 3rem;
+  }
+  .home__button,
+  .home__button::after {
+    border-width: 4px;
+  }
+  .home__button::after {
+    bottom: -12px
+  }
+  .home__cloud-1,
+  .home__cloud-2{
+    width: 250px;
+  }
+  .home__cloud-2 {
+    top: 20rem;
+  }
+  .home__images div {
+    height: 375px;
+    background-size: 100vw 100%;
+  }
+}
+
+/* Animated waves desktop */
